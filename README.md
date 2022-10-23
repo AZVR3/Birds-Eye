@@ -52,6 +52,9 @@ Contributors names and contact info
 
 ## Version History
 
+* 1.0.1
+   * Added requirements.txt
+   * Fixed a minor image issue with index.html
 * 1.0.0
     * Initial Release
 
