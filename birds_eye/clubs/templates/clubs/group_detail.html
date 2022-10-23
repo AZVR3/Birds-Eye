@@ -1,0 +1,60 @@
+{% extends "clubs/club_base.html" %}
+
+{% block pregroup %}
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'clubs:all' %}"><i>'Igniting the spark of genius in every child' - Dwight School Seoul</i></a>
+            {% comment %} <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Edit</a>
+                    </li>
+                </ul>
+            </div> {% endcomment %}
+        </div>
+    </nav>
+</div>
+<hr>
+<div class="container">
+    <div class="d-flex flex-row flex-container">
+    <div class="p-2 image-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="125" height="125" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg>
+    </div>
+    <div class="p-2 description-box">
+        <h2>{{ group.name }}</h2>
+        <p style="font-size: 24px;">{{ group.slogan|safe }}</p>
+        <p>{{ group.description|safe }}</p>
+    </div>
+    </div>
+</div>
+{% endblock %}
+{% block group_content %}
+{% comment %} Work on completing this page!!!! {% endcomment %}
+<nav class="navbar navbar-light bg-light" aria-label="First navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand text-dark" href="#">Information</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+
+      <div class="collapse navbar-collapse" id="navbarsExample01">
+        <ul class="navbar-nav me-auto mb-2">
+          <li class="nav-item">
+            <a class="nav-link active text-dark" aria-current="page" href="#">Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-dark" aria-current="page" href="#">Portfolio</a>
+          </li>
+        </ul>
+        <form role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </nav>
+{% endblock %}

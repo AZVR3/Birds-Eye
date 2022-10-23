@@ -1,0 +1,43 @@
+{% extends "clubs/club_base.html" %}
+
+{% block pregroup%}
+<div class="col-md-4">
+    <div class="container">
+        {% if user.is_authenticated %}
+        <h2>
+            Welcome back!
+            <a href="#">
+            {% comment %} <a href="{% url 'posts:for_user' username=user.username %}"> {% endcomment %}
+                @{{ user.username }}
+            </a>
+        </h2>
+        {% endif %}
+        <h2>Groups</h2>
+        <p>Welcome to the groups page!</p>
+    </div>
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'djf_surveys:index' %}" class="btn btn-md btn-fill btn-warning">
+        <span class="glyphicon glyphicon-plus-sign">Create new Group!</span>
+    </a>
+    {% endif %}
+
+</div>
+<hr>
+{% endblock %}
+{% block group_content %}
+<hr>
+{% comment %} Complete making group display. {% endcomment %}
+<p></p>
+<div class="col-md-8">
+    <div class="container">
+        {% for club in object_list %}
+        <a class="list-group-item" href="{% url 'clubs:single' slug=club.slug %}">
+            <h3 class="title list-group-item-heading">{{ club.name }}</h3>
+            <span>{{ club.slogan|safe }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
