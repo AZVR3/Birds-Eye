@@ -44,11 +44,11 @@ Don't forget to give the project a star! Thanks again!
 
 Contributors names and contact info
 
-* Ian Song (Manager)
-* John Oh (Frontend & Backend)
-* Michelle Yi (Design)
-* Jitay Kim (Design)
-* Yeseo Nam (Design)
+* Ian Song **(Manager)**
+* John Oh **(Frontend & Backend)**
+* Michelle Yi **(Design)**
+* Jitay Kim **(Design)**
+* Yeseo Nam **(Design)**
 
 ## Version History
 
