@@ -6,6 +6,12 @@ Birds Eye is dedicated to helping schools organize different clubs into one plac
 
 This project is open sourced meaning that it is welcome to contribution from individuals around the world. Check [Contribution](#Contribution) for more details.
 
+This is a django based webite. It's ultimate goal is to have:
+* List of clubs and the members that reside in it
+* A feed to list all the club posts
+* A calendar to keep track of different events that are coming up
+* (Goals can be changed in the future)
+
 ## Quick Start
 
 To get this project up and running locally on your computer:
