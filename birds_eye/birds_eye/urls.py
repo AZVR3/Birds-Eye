@@ -30,7 +30,7 @@ urlpatterns = [
     path("events/", include("events.urls", namespace="events")),
     path("feeds/", include("feeds.urls", namespace="feeds")),
     
-    path("clubs/", include("clubs.urls", namespace="clubs")),
+    path("clubs/", include("clubs.urls")),
     path('surveys', include('djf_surveys.urls')),
 ]
 

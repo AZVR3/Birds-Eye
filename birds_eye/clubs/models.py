@@ -1,44 +1,31 @@
 from django.db import models
-from django.urls import reverse
 from django.utils.text import slugify
-from django.contrib.auth import get_user_model
-from django import template
-import misaka as m
+from django.urls import reverse
 
-# Create your models here.
-User = get_user_model()
-register = template.Library()
+class Member(models.Model):
+    name = models.CharField(max_length=200, verbose_name="Student Name", help_text="Enter the student name")
+    id = models.IntegerField(primary_key=True, verbose_name="Student ID", help_text="ID of the student")
 
-class Group(models.Model):
+    def __int__(self):
+        return self.id
+
+class Club(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(allow_unicode=True, unique=True)
-    slogan = models.TextField(blank=True, default='')
-    slogan_html = models.TextField(editable=False, default='', blank=True)
-    description = models.TextField(blank=True, default='')
-    description_html = models.TextField(editable=False, default='', blank=True)
-    members = models.ManyToManyField(User,through="GroupMember")
+    id = models.AutoField(primary_key=True)
+    slogan = models.TextField(max_length=50)
+    description = models.TextField(blank=True, null=True)
+    member = models.ManyToManyField(Member, help_text="Select a student to join the club")
+
+    class Meta:
+        ordering = ['name', 'slogan']
+
+    def display_member(self):
+        return ', '.join([member.name for member in self.member.all()[:3]])
+
+    display_member.short_description = "Member"
+
+    def get_absolute_url(self):
+        return reverse('clubs:club-detail', args=[str(self.id)])
 
     def __str__(self):
         return self.name
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        self.slogan = m.html(self.slogan)
-        self.description = m.html(self.description)
-        super().save(*args, **kwargs)
-    
-    def get_absolute_url(self):
-        return reverse("clubs:single", kwargs={"slug": self.slug})
-
-    class Meta:
-        ordering = ['name']
-
-class GroupMember(models.Model):
-    group = models.ForeignKey(Group, related_name='memberships', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='user_groups', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.user.username
-    
-    class Meta:
-        unique_together = ('user', 'group')

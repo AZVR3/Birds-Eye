@@ -1,4 +1,5 @@
 {% extends "clubs/club_base.html" %}
+{% load render_table from django_tables2 %}
 
 {% block pregroup %}
 <div class="container">
@@ -25,9 +26,9 @@
         </svg>
     </div>
     <div class="p-2 description-box">
-        <h2>{{ group.name }}</h2>
-        <p style="font-size: 24px;">{{ group.slogan|safe }}</p>
-        <p>{{ group.description|safe }}</p>
+        <h2>{{ club.name }}</h2>
+        <p style="font-size: 24px;">{{ club.slogan|safe }}</p>
+        <p>{{ club.description|safe }}</p>
     </div>
     </div>
 </div>
@@ -35,26 +36,48 @@
 {% block group_content %}
 {% comment %} Work on completing this page!!!! {% endcomment %}
 <nav class="navbar navbar-light bg-light" aria-label="First navbar example">
-    <div class="container-fluid">
-      <a class="navbar-brand text-dark" href="#">Information</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <div class="container-fluid">
+    <a class="navbar-brand text-dark" href="#">Information</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
       
 
-      <div class="collapse navbar-collapse" id="navbarsExample01">
-        <ul class="navbar-nav me-auto mb-2">
-          <li class="nav-item">
-            <a class="nav-link active text-dark" aria-current="page" href="#">Members</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active text-dark" aria-current="page" href="#">Portfolio</a>
-          </li>
-        </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        </form>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarsExample01">
+      <ul class="navbar-nav me-auto mb-2">
+        <li class="nav-item">
+          <a class="nav-link active text-dark" aria-current="page" href="#">Members</a>
+        </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link active text-dark" aria-current="page" href="#">Portfolio</a>
+        </li> {% endcomment %}
+      </ul>
+      <form role="search">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
     </div>
-  </nav>
+  </div>
+</nav>
+{% endblock %}
+{% block postgroup%}
+<div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for member in club_list %}
+      <tr>
+        {{ club.name }}
+      </tr>
+      <tr>
+        {{ club.id }}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}

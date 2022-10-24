@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "bootstrap5",
     "djf_surveys",
+    "django_tables2",
     "accounts",
     "clubs",
     "feeds",

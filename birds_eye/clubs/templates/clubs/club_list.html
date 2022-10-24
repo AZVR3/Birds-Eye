@@ -32,7 +32,7 @@
 <div class="col-md-8">
     <div class="container">
         {% for club in object_list %}
-        <a class="list-group-item" href="{% url 'clubs:single' slug=club.slug %}">
+        <a class="list-group-item" href="{{ club.get_absolute_url }}">
             <h3 class="title list-group-item-heading">{{ club.name }}</h3>
             <span>{{ club.slogan|safe }}</span>
         </a>
