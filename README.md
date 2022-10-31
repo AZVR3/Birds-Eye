@@ -58,6 +58,8 @@ Contributors names and contact info
 
 ## Version History
 
+*1.0.3
+   * Added a replacement table that is not dynamic just yet
 * 1.0.2
    * A bit more human readable to newer people learning Django
 * 1.0.1
