@@ -52,31 +52,35 @@
           <a class="nav-link active text-dark" aria-current="page" href="#">Portfolio</a>
         </li> {% endcomment %}
       </ul>
-      <form role="search">
+      {% comment %} <form role="search">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+      </form> {% endcomment %}
     </div>
   </div>
 </nav>
 {% endblock %}
 {% block postgroup%}
+<br>
 <div>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>ID</th>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">ID</th>
       </tr>
     </thead>
     <tbody>
-      {% for member in club_list %}
       <tr>
-        {{ club.name }}
+        <th scope="row">1</th>
+        <td>John</td>
+        <td>1234567</td>
       </tr>
       <tr>
-        {{ club.id }}
+        <th scope="row">2</th>
+        <td>Jane</td>
+        <td>9876543</td>
       </tr>
-      {% endfor %}
     </tbody>
   </table>
 </div>
