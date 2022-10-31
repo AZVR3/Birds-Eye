@@ -1,5 +1,5 @@
 Always use Git Bash when committing your code!
-git remote add -A (Adds all files to the commit)
+git add -A (Adds all files to the commit)
 git commit -m "some text" -m "some text" ... (Header --> Description --> Footer)
 
 Reference emojis:
