@@ -12,7 +12,7 @@ class Member(models.Model):
 class Club(models.Model):
     name = models.CharField(max_length=100, unique=True)
     id = models.AutoField(primary_key=True)
-    slogan = models.TextField(max_length=50)
+    slogan = models.TextField(max_length=70)
     description = models.TextField(blank=True, null=True)
     member = models.ManyToManyField(Member, help_text="Select a student to join the club")
 

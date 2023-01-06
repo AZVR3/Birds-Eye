@@ -31,13 +31,30 @@
 <p></p>
 <div class="col-md-8">
     <div class="container">
-        {% for club in object_list %}
+        {% for club in club_list %}
         <a class="list-group-item" href="{{ club.get_absolute_url }}">
             <h3 class="title list-group-item-heading">{{ club.name }}</h3>
             <span>{{ club.slogan|safe }}</span>
         </a>
+        <p></p>
+        <br>
         {% endfor %}
     </div>
 </div>
+
+{% endblock %}
+
+{% block pagination %}
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
 
 {% endblock %}
